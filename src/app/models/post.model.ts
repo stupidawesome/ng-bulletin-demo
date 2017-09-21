@@ -1,15 +1,14 @@
-export default class Post {
-
-  constructor (id, author, title, message, created, modified) {
-    this.id = id
-    this.author = author
-    this.title = title
-    this.message = message
-    this.created = created
-    this.modified = modified
-  }
+export class Post {
+  constructor (
+    public id = '',
+    public author = '',
+    public title = '',
+    public message = '',
+    public created = '',
+    public modified = '',
+  ) {}
 
   static create (opts) {
-    return new Post(opts.id, opts.author, opts.title, opts.message, opts.created, opts.modified)
+    return new Post(opts.id, opts.author, opts.title, opts.message, opts.created, opts.modified);
   }
 }
