@@ -1,0 +1,32 @@
+<div class="Post">
+  <div class="Post-header">
+    Posted by {{post.author}} {{postDate}}
+  </div>
+
+  <h3 class="Post-title" [innerText]="post.title"></h3>
+  <p class="Post-message" [innerText]="post.message"></p>
+
+  <div class="Post-actions">
+    <button class="Post-actionsToggle" (click)="toggleActions()" [ngClass]="{isOpen: isActionsOpen}">
+      <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+    </button>
+    <div *ngIf="isActionsOpen" class="Post-actionsMenu">
+      <ng-container *ngIf="isAuthored">
+        <button class="Post-action" (click)="edit()">
+          <i aria-hidden="true" class="fa fa-pencil"></i>
+          <span>Edit</span>
+        </button>
+        <button class="Post-action" (click)="remove()">
+          <i aria-hidden="true" class="fa fa-trash-o"></i>
+          <span>Delete</span>
+        </button>
+      </ng-container>
+      <ng-container *ngIf="!isAuthored">
+        <button class="Post-action" (click)="reply()">
+          <i aria-hidden="true" class="fa fa-reply"></i>
+          <span>Reply</span>
+        </button>
+      </ng-container>
+    </div>
+  </div>
+</div>

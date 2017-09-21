@@ -1,0 +1,45 @@
+{
+  "title": "Vue Bulletin Board",
+  "posts": [
+    {
+      "id": 1,
+      "author": "Some Guy",
+      "title": "Lorem Ipsum",
+      "message": "Lorem Ipsum secor dolor. Lorem Ipsum secor dolor. Lorem Ipsum secor dolor. Lorem Ipsum secor dolor. Lorem Ipsum secor dolor. Lorem Ipsum secor dolor. Lorem Ipsum secor dolor.",
+      "created": "1505633126592",
+      "modified": "1505633126592"
+    },
+    {
+      "id": 2,
+      "author": "Some Guy",
+      "title": "Lorem Ipsum",
+      "message": "Lorem Ipsum secor dolor.",
+      "created": "1505633126592",
+      "modified": "1505633126592"
+    },
+    {
+      "id": 3,
+      "author": "Some Guy",
+      "title": "Lorem Ipsum",
+      "message": "Lorem Ipsum secor dolor.",
+      "created": "1505633126592",
+      "modified": "1505633126592"
+    },
+    {
+      "id": 4,
+      "author": "Some Guy",
+      "title": "Lorem Ipsum",
+      "message": "Lorem Ipsum secor dolor.",
+      "created": "1505633126592",
+      "modified": "1505633126592"
+    },
+    {
+      "id": 5,
+      "author": "Some Guy",
+      "title": "Lorem Ipsum",
+      "message": "Lorem Ipsum secor dolor.",
+      "created": "1505633126592",
+      "modified": "1505633126592"
+    }
+  ]
+}

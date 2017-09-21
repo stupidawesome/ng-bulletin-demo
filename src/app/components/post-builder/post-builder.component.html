@@ -1,0 +1,37 @@
+<form [formGroup]="form" novalidate (submit)="onSubmit($event)">
+  <div class="PostBuilder">
+    <div class="PostBuilder-formControl">
+      <label [for]="form.controls.author.id">Author</label>
+      <app-input class="PostBuilder-input" [field]="form.controls.author">
+        <input id="author" name="author" formControlName="author" placeholder="Author" />
+      </app-input>
+      <div class="PostBuilder-status" *ngIf="form.controls.author.dirty && form.controls.author.invalid">
+        <span [hidden]="!form.controls.author.errors.required">Required</span>
+      </div>
+    </div>
+
+    <div class="PostBuilder-formControl">
+      <label [for]="form.controls.title.id">Title</label>
+      <app-input class="PostBuilder-input" [field]="form.controls.title">
+        <input id="title" name="title" formControlName="title" placeholder="Title" />
+      </app-input>
+      <div class="PostBuilder-status" *ngIf="form.controls.title.dirty && form.controls.title.invalid">
+        <span [hidden]="!form.controls.title.errors.required">Required</span>
+      </div>
+    </div>
+
+    <div class="PostBuilder-formControl">
+      <label [for]="form.controls.message.id">Message</label>
+      <app-input class="PostBuilder-input" [field]="form.controls.message">
+        <textarea id="message" name="message" formControlName="message" placeholder="Enter your message..."></textarea>
+      </app-input>
+      <div class="PostBuilder-status" *ngIf="form.controls.message.dirty && form.controls.message.invalid">
+        <span [hidden]="!form.controls.message.errors.required">Required</span>
+      </div>
+    </div>
+
+    <button class="PostBuilder-submit">
+      <span>Post it</span>
+    </button>
+  </div>
+</form>

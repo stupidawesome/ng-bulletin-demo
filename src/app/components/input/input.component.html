@@ -1,0 +1,11 @@
+<div class="Input" [ngClass]="{
+  valid: field.valid,
+  invalid: field.invalid,
+  dirty: field.dirty,
+  pristine: field.pristine,
+  touched: field.touched,
+  untouched: field.untouched
+}">
+  <ng-content></ng-content>
+  <div class="Input-focus"></div>
+</div>

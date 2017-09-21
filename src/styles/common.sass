@@ -1,0 +1,83 @@
+$light-grey: #f7f7f7
+$white: #ffffff
+$red: #dc322f
+$blue: #268bd2
+$grey: #aaaaaa
+
+%u-visuallyHidden
+  position: absolute !important
+  height: 1px
+  width: 1px
+  overflow: hidden
+  clip: rect(1px, 1px, 1px, 1px)
+
+%Button
+  position: relative
+  border: none
+  box-shadow: none
+  background: darken($red, 15%)
+  color: $white
+  padding: 1rem 3rem
+  z-index: 0
+  font-weight: 700
+  cursor: pointer
+  transition: all 0.2s
+  text-shadow: 1px 1px 0 darken($red, 10%)
+
+  &:after,
+  &:before
+    content: ""
+    display: block
+    position: absolute
+    height: 100%
+    left: -0.3rem
+    top: -0.3rem
+    right: -0.3rem
+    background: $red
+    z-index: -1
+    opacity: 0.5
+    transition: inherit
+
+  &:after
+    left: 0
+    top: 0
+    right: 0
+    opacity: 1
+
+  &:focus
+    outline: none
+    &:after
+      background: inherit
+
+  &:active
+    outline: none
+    transform: scale(0.95)
+
+  &--greyAccent
+    background: darken($grey, 15%)
+    text-shadow: 1px 1px 0 darken($grey, 10%)
+    color: $white
+
+    &:before
+      background: $grey
+
+%Loader
+  &:after
+    content: ""
+    opacity: 0
+    transition: opacity 0.4s
+    position: absolute
+    top: -1rem
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: 9999
+    pointer-events: none
+    background: $white
+
+  &.isLoading
+    &:after
+      opacity: 0.8
+
+.u-visuallyHidden
+  @extend %u-visuallyHidden
