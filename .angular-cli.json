@@ -21,17 +21,17 @@
       "styles": [
         "styles/global.sass"
       ],
-      "scripts": [],
-      "environmentSource": "environments/environment.ts",
-      "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
-      },
       "stylePreprocessorOptions": {
         "includePaths": [
           ".",
           "styles"
         ]
+      },
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
       }
     }
   ],
@@ -61,6 +61,7 @@
   },
   "defaults": {
     "styleExt": "sass",
-    "component": {}
+    "component": {
+    }
   }
 }

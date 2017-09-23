@@ -1,7 +1,7 @@
-<div class="Bulletin" [ngClass]="{isLoading: loading$ | async}">
+<div class="Bulletin" [ngClass]="{isLoading: loading}">
   <header>
     <h2>
-      <span [innerText]="(bulletin$ | async)?.title"></span>
+      <span [innerText]="(bulletinStream | async)?.title"></span>
     </h2>
   </header>
 
@@ -9,7 +9,7 @@
     <span>Write Something</span>
   </button>
 
-  <ng-container *ngFor="let post of posts$ | async">
+  <ng-container *ngFor="let post of postStream | async">
     <div class="Bulletin-post">
       <app-post [post]="post" (onEdit)="editPost($event)" (onDelete)="deletePost($event)" (onReply)="replyPost($event)"></app-post>
     </div>

@@ -26,34 +26,36 @@ export class FakeBulletinBackend {
     return this.respond(JSON.stringify(bulletin));
   }
 
-  static getPost (postId) {
-    return this.respond(JSON.stringify(bulletin.posts.find((post) => post.id === postId)));
+  static getPost (payload) {
+    return this.respond(JSON.stringify(bulletin.posts.find((post) => post.id === payload.id)));
   }
 
-  static addPost (post) {
-    bulletin.posts = bulletin.posts.slice();
-    bulletin.posts.push(Object.assign({}, post, {
+  static addPost (payload) {
+    const post = Object.assign({}, payload, {
       id: id++,
       created: Date.now()
-    }));
-    return this.respond(JSON.stringify(bulletin));
+    });
+    bulletin.posts = bulletin.posts.slice();
+    bulletin.posts.push(post);
+    return this.respond(JSON.stringify(post));
   }
 
-  static editPost (post) {
+  static editPost (payload) {
     const index = bulletin.posts.findIndex(bulletinPost => {
-      return post.id === bulletinPost.id;
+      return payload.id === bulletinPost.id;
     });
-    bulletin.posts[index] = Object.assign({}, post, {
+    const post = Object.assign({}, payload, {
       modified: Date.now()
     });
+    bulletin.posts[index] = post;
 
-    return this.respond(JSON.stringify(bulletin));
+    return this.respond(JSON.stringify(post));
   }
 
-  static removePost (postId) {
+  static removePost (payload) {
     bulletin.posts = bulletin.posts.filter(post => {
-      return post.id !== postId;
+      return post.id !== payload.id;
     });
-    return this.respond();
+    return this.respond(JSON.stringify({}));
   }
 }

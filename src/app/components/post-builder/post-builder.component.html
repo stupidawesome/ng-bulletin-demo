@@ -1,32 +1,32 @@
-<form [formGroup]="form" novalidate (submit)="onSubmit($event)">
-  <div class="PostBuilder">
+<form [formGroup]="form" novalidate (submit)="onSubmit()">
+  <div class="PostBuilder" [ngClass]="{isLoading: loading}">
     <div class="PostBuilder-formControl">
-      <label [for]="form.controls.author.id">Author</label>
-      <app-input class="PostBuilder-input" [field]="form.controls.author">
-        <input id="author" name="author" formControlName="author" placeholder="Author" />
+      <label>Author</label>
+      <app-input class="PostBuilder-input" [field]="author">
+        <input formControlName="author" placeholder="Author" />
       </app-input>
-      <div class="PostBuilder-status" *ngIf="form.controls.author.dirty && form.controls.author.invalid">
-        <span [hidden]="!form.controls.author.errors.required">Required</span>
+      <div class="PostBuilder-status" *ngIf="author.dirty && author.invalid">
+        <span [hidden]="!author.errors.required">Required</span>
       </div>
     </div>
 
     <div class="PostBuilder-formControl">
-      <label [for]="form.controls.title.id">Title</label>
-      <app-input class="PostBuilder-input" [field]="form.controls.title">
-        <input id="title" name="title" formControlName="title" placeholder="Title" />
+      <!--<label [for]="title.key">Title</label>-->
+      <app-input class="PostBuilder-input" [field]="title">
+        <input [attr.id]="title.key" [attr.name]="title.key" formControlName="title" placeholder="Title" />
       </app-input>
-      <div class="PostBuilder-status" *ngIf="form.controls.title.dirty && form.controls.title.invalid">
-        <span [hidden]="!form.controls.title.errors.required">Required</span>
+      <div class="PostBuilder-status" *ngIf="title.dirty && title.invalid">
+        <span [hidden]="!title.errors.required">Required</span>
       </div>
     </div>
 
     <div class="PostBuilder-formControl">
-      <label [for]="form.controls.message.id">Message</label>
-      <app-input class="PostBuilder-input" [field]="form.controls.message">
-        <textarea id="message" name="message" formControlName="message" placeholder="Enter your message..."></textarea>
+      <!--<label [for]="message.id">Message</label>-->
+      <app-input class="PostBuilder-input" [field]="message">
+        <textarea formControlName="message" placeholder="Enter your message..."></textarea>
       </app-input>
-      <div class="PostBuilder-status" *ngIf="form.controls.message.dirty && form.controls.message.invalid">
-        <span [hidden]="!form.controls.message.errors.required">Required</span>
+      <div class="PostBuilder-status" *ngIf="message.dirty && message.invalid">
+        <span [hidden]="!message.errors.required">Required</span>
       </div>
     </div>
 

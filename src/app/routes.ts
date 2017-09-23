@@ -6,5 +6,5 @@ export const appRoutes: Routes = [
   { path: '', component: BulletinComponent },
   { path: 'post/create', component: PostBuilderComponent },
   { path: 'post/edit/:postId', component: PostBuilderComponent },
-  { path: '**', component: BulletinComponent }
+  { path: '**', redirectTo: ''}
 ];
